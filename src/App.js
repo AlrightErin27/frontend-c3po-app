@@ -51,7 +51,7 @@ function App() {
             />
           </Route>
 
-          <Redirect to="/collection"></Redirect>
+          <Redirect to="/log_in"></Redirect>
         </Switch>
       </Router>
     </div>

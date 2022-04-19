@@ -14,7 +14,7 @@ function NavBar({ user }) {
         {user !== "" ? <>Create</> : null}
       </NavLink>
       <NavLink className="nav_item" to="/log_in">
-        {user !== "" ? <>Log Off</> : <>Log In</>}
+        {user !== "" ? <>Log Off</> : <></>}
       </NavLink>
     </nav>
   );
