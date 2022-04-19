@@ -19,31 +19,42 @@ function App() {
     console.log(`${userName} is logged in.`);
   }
 
+  function handleLogOff() {
+    setUser("");
+  }
+
   return (
-    <Router>
-      <NavBar />
-      {user !== "" ? <h3>Current User: {user}</h3> : ""}
+    <div id="app">
+      <h1>3CPO's Curiosities</h1>
+      <Router>
+        <NavBar user={user} />
+        {user !== "" ? <h3>Current User: {user}</h3> : ""}
 
-      <Switch>
-        <Route path="/collection">
-          <Collection />
-        </Route>
+        <Switch>
+          <Route path="/collection">
+            <Collection />
+          </Route>
 
-        <Route path="/creatures">
-          <Creatures />
-        </Route>
+          <Route path="/creatures">
+            <Creatures />
+          </Route>
 
-        <Route path="/create">
-          <Create />
-        </Route>
+          <Route path="/create">
+            <Create />
+          </Route>
 
-        <Route path="/log_in">
-          <LogInForm handleLoggedUser={handleLoggedUser} />
-        </Route>
+          <Route path="/log_in">
+            <LogInForm
+              handleLoggedUser={handleLoggedUser}
+              handleLogOff={handleLogOff}
+              user={user}
+            />
+          </Route>
 
-        <Redirect to="/collection"></Redirect>
-      </Switch>
-    </Router>
+          <Redirect to="/collection"></Redirect>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

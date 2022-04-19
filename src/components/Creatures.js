@@ -1,7 +1,7 @@
 import React from "react";
 
 function Creatures() {
-  return <div>Creatures</div>;
+  return <h3>Creatures</h3>;
 }
 
 export default Creatures;

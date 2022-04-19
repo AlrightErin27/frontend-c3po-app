@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function LogIn({ handleLoggedUser }) {
+function LogIn({ handleLoggedUser, handleLogOff, user }) {
   const [val, setVal] = useState("");
   const history = useHistory();
 
@@ -16,11 +16,21 @@ function LogIn({ handleLoggedUser }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label id="form-label">Welcome:</label>
-      <input type="text" placeholder="Jedi Name..." onChange={handleChange} />
-      <input type="submit" id="form-submit" />
-    </form>
+    <div>
+      {user !== "" ? (
+        <button onClick={handleLogOff}>Log Off</button>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <label id="form-label">Welcome:</label>
+          <input
+            type="text"
+            placeholder="Jedi Name..."
+            onChange={handleChange}
+          />
+          <input type="submit" id="form-submit" />
+        </form>
+      )}
+    </div>
   );
 }
 
