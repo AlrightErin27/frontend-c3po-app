@@ -1,3 +1,19 @@
-.App {
-  background-color: rgb(224, 221, 241);
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap");
+body {
+  background-image: url("./stars.jpeg");
+}
+.nav_bar {
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+  font-family: "Bungee Outline", cursive;
+}
+.nav_item {
+  padding: 0 5rem 0 5rem;
+  color: yellow;
+  font-size: 2vw;
+  text-decoration: none;
+}
+.nav_item:hover {
+  color: rgb(232, 232, 164);
+  cursor: pointer;
 }
