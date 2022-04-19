@@ -38,3 +38,4 @@ and will show 3CPO's library of creatures. It will be one to two pages, and let 
 ## References
 
 - SWAPI Star Wars API, to use data to seed: https://swapi.dev/
+- Disney Wiki: https://disney.fandom.com/wiki/Category:Star_Wars_creatures
