@@ -4,17 +4,17 @@ import { NavLink } from "react-router-dom";
 function NavBar() {
   return (
     <nav className="nav_bar">
-      <NavLink className="nav_item" to="/saved_critters">
+      <NavLink className="nav_item" to="/collection">
         Collection
       </NavLink>
-      <NavLink className="nav_item" to="/browse_creatures">
-        Library
+      <NavLink className="nav_item" to="/creatures">
+        Creatures
       </NavLink>
-      <NavLink className="nav_item" to="/create_species">
+      <NavLink className="nav_item" to="/create">
         Create
       </NavLink>
       <NavLink className="nav_item" to="/log_in">
-        Take Off
+        Log On/Off
       </NavLink>
     </nav>
   );
