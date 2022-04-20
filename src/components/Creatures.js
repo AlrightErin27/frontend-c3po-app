@@ -1,7 +1,9 @@
-import React from "react";
-
 function Creatures() {
-  return <h3>Creatures</h3>;
+  // const renderCreatures = creatures.map((creature) => {
+  //   //
+  // });
+
+  return <div id="creatures_container">Creatures</div>;
 }
 
 export default Creatures;

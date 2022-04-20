@@ -13,6 +13,7 @@ function LogIn({ handleLoggedUser, handleLogOff, user }) {
     if (val !== "") {
       e.preventDefault();
       handleLoggedUser(val);
+      // console.log("val" + val);
       setVal("");
       history.push("/collection");
     } else {
