@@ -1,7 +1,10 @@
 import React from "react";
 
-function Creature({ creature }) {
-  // console.log("  👹  ", creature.image_url);
+function Creature({ creature, toSaveCreature }) {
+
+  function handleSave(){
+    toSaveCreature(creature.creature_type, creature.image_url)
+  }
 
   return (
     <div className="creature">
@@ -13,6 +16,7 @@ function Creature({ creature }) {
         />
       </div>
       <p>First film appearance: {creature.film}</p>
+      <button onClick={handleSave}>Save {creature.creature_type}</button>
     </div>
   );
 }

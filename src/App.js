@@ -13,7 +13,11 @@ import Collection from "./components/Collection";
 
 function App() {
   const [user, setUser] = useState("");
+  const [pets, setPets] = useState([])
+  const [species, setSpecies] = useState([]);
   const [creatures, setCreatures] = useState([]);
+  const [savedCreature, setSavedCreature] =useState([]);
+
 
   function handleLoggedUser(userName) {
     setUser(userName);
@@ -35,7 +39,33 @@ function App() {
       .then(setCreatures)
       .catch((err) => console.log("💀", err));
   }, []);
-  console.log(creatures);
+  // console.log(creatures);
+
+
+  useEffect(() => {
+    fetch("http://localhost:9292/pet", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then(setPets)
+      .catch((err) => console.log("🔥", err));
+  }, []);
+  console.log(pets);
+
+
+  function toSaveCreature(type, img){
+    console.log(img)
+    // let cObj = {
+    //   name: type,
+    //   img: img
+    // }
+    // setSavedCreature([])
+
+
+  }
 
   return (
     <div id="app">
@@ -46,11 +76,11 @@ function App() {
    
         <Switch>
           <Route path="/collection">
-            <Collection />
+            <Collection pets={pets}/>
           </Route>
 
           <Route path="/creature">
-            <Creatures creatures={creatures} />
+            <Creatures creatures={creatures} toSaveCreature={toSaveCreature}/>
           </Route>
 
           <Route path="/create">
