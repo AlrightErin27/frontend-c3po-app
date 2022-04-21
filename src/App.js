@@ -13,11 +13,10 @@ import Collection from "./components/Collection";
 
 function App() {
   const [user, setUser] = useState("");
-  const [pets, setPets] = useState([])
+  const [pets, setPets] = useState([]);
   const [species, setSpecies] = useState([]);
   const [creatures, setCreatures] = useState([]);
-  const [savedCreature, setSavedCreature] =useState([]);
-
+  const [savedCreature, setSavedCreature] = useState({});
 
   function handleLoggedUser(userName) {
     setUser(userName);
@@ -41,7 +40,6 @@ function App() {
   }, []);
   // console.log(creatures);
 
-
   useEffect(() => {
     fetch("http://localhost:9292/pet", {
       method: "GET",
@@ -53,18 +51,24 @@ function App() {
       .then(setPets)
       .catch((err) => console.log("🔥", err));
   }, []);
-  console.log(pets);
+  // console.log(pets);
 
+  /////////HANDLING SAVED CREATURES////////////
+  function toSaveCreature(creatureId) {
+    console.log(creatureId);
 
-  function toSaveCreature(type, img){
-    console.log(img)
-    // let cObj = {
-    //   name: type,
-    //   img: img
-    // }
-    // setSavedCreature([])
+    fetch("http://localhost:9292/pet", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ creature_id: creatureId, user_id: null }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log("🔥", err));
 
-
+    console.log(pets);
   }
 
   return (
@@ -73,14 +77,14 @@ function App() {
       <Router>
         <NavBar user={user} />
         {user !== "" ? <h3>Current User: {user}</h3> : ""}
-   
+
         <Switch>
           <Route path="/collection">
-            <Collection pets={pets}/>
+            <Collection pets={pets} creatures={creatures} user={user} />
           </Route>
 
           <Route path="/creature">
-            <Creatures creatures={creatures} toSaveCreature={toSaveCreature}/>
+            <Creatures creatures={creatures} toSaveCreature={toSaveCreature} />
           </Route>
 
           <Route path="/create">
