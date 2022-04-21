@@ -64,3 +64,19 @@ h3 {
   height: 45vh;
   margin: 15vh;
 }
+////////////////////// CREATURE SECTION////////////////////
+#creatures-title {
+  font-family: "Oswald", sans-serif;
+}
+.creature {
+  font-size: 3vw;
+  font-family: "Bungee Outline", cursive;
+}
+.creature img {
+  max-width: 40vw;
+}
+.creature p {
+  font-size: 2vw;
+  font-family: "Oswald", sans-serif;
+  color: white;
+}

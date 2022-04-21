@@ -25,7 +25,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetch("http://localhost:9000/creature", {
+    fetch("http://localhost:9292/creature", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -42,8 +42,8 @@ function App() {
       <h1>3CPO's Curiosities</h1>
       <Router>
         <NavBar user={user} />
-        {/* {user !== "" ? <h3>Current User: {user}</h3> : ""} */}
-        <h3>Current User: {user}</h3>
+        {user !== "" ? <h3>Current User: {user}</h3> : ""}
+   
         <Switch>
           <Route path="/collection">
             <Collection />

@@ -5,7 +5,12 @@ function Creatures({ creatures }) {
     return <Creature creature={creature} key={creature.id} />;
   });
 
-  return <div id="creatures_container">{renderCreatures}</div>;
+  return (
+  <div>
+    <h1 id="creatures-title">Library of Creatures</h1>
+    <div >{renderCreatures}</div>
+    </div>
+    )
 }
 
 export default Creatures;
