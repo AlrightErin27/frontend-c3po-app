@@ -1,9 +1,11 @@
-function Creatures() {
-  // const renderCreatures = creatures.map((creature) => {
-  //   //
-  // });
+import Creature from "./Creature";
 
-  return <div id="creatures_container">Creatures</div>;
+function Creatures({ creatures }) {
+  const renderCreatures = creatures.map((creature) => {
+    return <Creature creature={creature} key={creature.id} />;
+  });
+
+  return <div id="creatures_container">{renderCreatures}</div>;
 }
 
 export default Creatures;

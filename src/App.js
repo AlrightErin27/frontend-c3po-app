@@ -50,7 +50,7 @@ function App() {
           </Route>
 
           <Route path="/creature">
-            <Creatures />
+            <Creatures creatures={creatures} />
           </Route>
 
           <Route path="/create">
