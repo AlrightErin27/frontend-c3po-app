@@ -13,7 +13,7 @@ import Collection from "./components/Collection";
 
 function App() {
   const [user, setUser] = useState("");
-  // const [creatures, setCreatures] = useState([]);
+  const [creatures, setCreatures] = useState([]);
 
   function handleLoggedUser(userName) {
     setUser(userName);
@@ -24,37 +24,26 @@ function App() {
     setUser("");
   }
 
-  // useEffect(() => {
-  //   fetch("http://localhost:9292/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ username: user }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => window.localStorage.setItem("token", data));
-  // }, [user]);
+  useEffect(() => {
+    fetch("http://localhost:9000/creature", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then(setCreatures)
+      .catch((err) => console.log("💀", err));
+  }, []);
+  console.log(creatures);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:9292/creature", {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then(setCreatures);
-  //   // .then((data) => window.localStorage.setItem("token", data));
-  // }, []);
-  // console.log("🐸", creatures);
   return (
     <div id="app">
       <h1>3CPO's Curiosities</h1>
       <Router>
         <NavBar user={user} />
-        {user !== "" ? <h3>Current User: {user}</h3> : ""}
-
+        {/* {user !== "" ? <h3>Current User: {user}</h3> : ""} */}
+        <h3>Current User: {user}</h3>
         <Switch>
           <Route path="/collection">
             <Collection />

@@ -5,16 +5,20 @@ function NavBar({ user }) {
   return (
     <nav className="nav_bar">
       <NavLink className="nav_item" to="/collection">
-        {user !== "" ? <>Collection</> : null}
+        {/* {user !== "" ? <>Collection</> : null} */}
+        <>Collection</>
       </NavLink>
       <NavLink className="nav_item" to="/creature">
-        {user !== "" ? <>Creatures</> : null}
+        {/* {user !== "" ? <>Creatures</> : null} */}
+        <>Creatures</>
       </NavLink>
       <NavLink className="nav_item" to="/create">
-        {user !== "" ? <>Create</> : null}
+        {/* {user !== "" ? <>Create</> : null} */}
+        <>Create</>
       </NavLink>
       <NavLink className="nav_item" to="/login">
-        {user !== "" ? <>Log Off</> : <></>}
+        {/* {user !== "" ? <>Log Off</> : <></>} */}
+        <>Log Off</>
       </NavLink>
     </nav>
   );
