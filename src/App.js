@@ -12,7 +12,7 @@ import Create from "./components/Create";
 import Collection from "./components/Collection";
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState("Luke");
   const [pets, setPets] = useState([]);
   const [creatures, setCreatures] = useState([]);
   const [species, setSpecies] = useState([]);
@@ -46,9 +46,10 @@ function App() {
       },
     })
       .then((response) => response.json())
-      .then((data) => console.log("🎈", data))
+      .then((data) => setSpecies(data))
       .catch((err) => console.log("💀", err));
   }, []);
+  console.log(species);
 
   useEffect(() => {
     fetch("http://localhost:9292/pet", {
@@ -65,22 +66,22 @@ function App() {
   function handleNewSpecies(sName, sDesc) {
     console.log(`Name: ${sName} & Desc: ${sDesc}`);
 
-    // fetch("http://localhost:9292/species", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     species_name: sName,
-    //     description: sDesc,
-    //     user_id: null,
-    //   }),
-    // })
-    //   .then((response) => response.json())
-    //   .then(setSpecies)
-    //   .catch((err) => console.log("💀", err));
+    fetch("http://localhost:9292/species", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        species_name: sName,
+        description: sDesc,
+        user_id: null,
+      }),
+    })
+      .then((response) => response.json())
+      // .then(setSpecies)
+      .catch((err) => console.log("💀", err));
   }
-  console.log("🌶", species);
+
   return (
     <div id="app">
       <h1>3CPO's Curiosities</h1>
@@ -90,7 +91,12 @@ function App() {
 
         <Switch>
           <Route path="/collection">
-            <Collection pets={pets} creatures={creatures} user={user} />
+            <Collection
+              pets={pets}
+              creatures={creatures}
+              user={user}
+              species={species}
+            />
           </Route>
 
           <Route path="/creature">

@@ -1,14 +1,20 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+
+//
+//         {user !== "" ? <>Collection</> : null}
+//       </NavLink>
 
 function Create({ handleNewSpecies }) {
   const [nameVal, setNameVal] = useState("");
   const [descVal, setDescVal] = useState("");
+
   function handleNameChange(e) {
     // console.log("NAME SPECIES", e.target.value);
     setNameVal(e.target.value);
   }
   function handleDescChange(e) {
-    // console.log("DESCSPECIES", e.target.value);
+    // console.log("DESC SPECIES", e.target.value);
     setDescVal(e.target.value);
   }
   function handleSubmit(e) {
@@ -23,12 +29,11 @@ function Create({ handleNewSpecies }) {
       <input type="text" onChange={handleNameChange} />
       <label id="form-label">Species Description:</label>
       <input type="text" onChange={handleDescChange} />
-      <input type="submit" id="form-submit" />
+      <NavLink to="/collection">
+        <input type="submit" id="form-submit" />
+      </NavLink>
     </form>
   );
 }
-
-//species_name
-//description
 
 export default Create;
