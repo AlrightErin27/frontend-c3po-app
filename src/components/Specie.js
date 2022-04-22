@@ -8,10 +8,12 @@ function Specie({ specie, removeSpecie }) {
   }
 
   return (
-    <div>
-      <h1>{specie.species_name}</h1>
+    <div className="specie_container">
+      <h1 className="species_name">{specie.species_name}</h1>
       <h3>{specie.description}</h3>
-      <button onClick={handleDeleteSpecie}>Delete {specie.species_name}</button>
+      <button onClick={handleDeleteSpecie} className="form-submit">
+        Delete {specie.species_name}
+      </button>
     </div>
   );
 }

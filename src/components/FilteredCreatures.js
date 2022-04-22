@@ -19,7 +19,9 @@ function FilteredCreatures({ imgArr, nameArr, pet }) {
     <div className="creature">
       <p>{nameArr}</p>
       <img src={imgArr} alt={nameArr} />
-      <button onClick={handleDelete}>Remove {nameArr} from Collection</button>
+      <button onClick={handleDelete} className="form-submit">
+        Remove {nameArr} from Collection
+      </button>
     </div>
   );
 }

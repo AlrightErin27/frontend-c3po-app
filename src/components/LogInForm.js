@@ -23,17 +23,19 @@ function LogIn({ handleLoggedUser, handleLogOff, user }) {
   return (
     <div>
       {user !== "" ? (
-        <button onClick={handleLogOff}>Log Off</button>
+        <button onClick={handleLogOff} className="form-submit">
+          Log Off
+        </button>
       ) : (
         <>
-          <form onSubmit={handleSubmit} id="form">
+          <form onSubmit={handleSubmit} className="form-sw">
             <input
               type="text"
               placeholder="Jedi Name..."
               onChange={handleChange}
-              id="form-text"
+              className="form-text"
             />
-            <input type="submit" id="form-submit" />
+            <input type="submit" className="form-submit" />
           </form>
           <img src={porg} alt="porg_gif" id="porg" />
         </>

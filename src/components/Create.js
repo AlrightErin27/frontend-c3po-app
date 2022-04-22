@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-
-//
-//         {user !== "" ? <>Collection</> : null}
-//       </NavLink>
+import grogu from "../gro.gif";
 
 function Create({ handleNewSpecies }) {
   const [nameVal, setNameVal] = useState("");
@@ -24,15 +21,22 @@ function Create({ handleNewSpecies }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label id="form-label">Species Name:</label>
-      <input type="text" onChange={handleNameChange} />
-      <label id="form-label">Species Description:</label>
-      <input type="text" onChange={handleDescChange} />
-      <NavLink to="/collection">
-        <input type="submit" id="form-submit" />
-      </NavLink>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <label id="form-label" className="form-text">
+          Species Name:
+        </label>
+        <input type="text" className="form-text" onChange={handleNameChange} />
+        <label id="form-label" className="form-text">
+          Species Description:
+        </label>
+        <input type="text" className="form-text" onChange={handleDescChange} />
+        <NavLink to="/collection">
+          <input type="submit" className="form-submit" />
+        </NavLink>
+      </form>
+      <img src={grogu} alt="grogu_gif" id="grogu" />
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Lalezar&family=Oswald:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap");
 body {
   background-image: url("./stars.jpeg");
 }
@@ -32,10 +33,10 @@ h3 {
 }
 
 /*-------------------- LOG IN FORM --------------------*/
-#form-text::placeholder {
+.form-text::placeholder {
   color: white;
 }
-#form-text {
+.form-text {
   font-size: 1.5rem;
   margin: 0 1.5rem 0 1.5rem;
   background-color: transparent;
@@ -44,10 +45,10 @@ h3 {
   font-family: "Lalezar", cursive;
   color: white;
 }
-#form-text:hover {
+.form-text:hover {
   cursor: pointer;
 }
-#form-submit {
+.form-submit {
   font-size: 1.5rem;
   border-radius: 8px;
   background: transparent;
@@ -56,13 +57,20 @@ h3 {
   font-family: "Lalezar", cursive;
   outline: none;
 }
-#form-submit:hover {
+.form-submit:hover {
   cursor: text;
   background-color: #ffd81483;
 }
 #porg {
   height: 45vh;
   margin: 15vh;
+}
+/* /////////////////?COLLECTION//////////////// */
+.collection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 /* ////////////////////// CREATURE SECTION//////////////////// */
 #creatures-title {
@@ -71,12 +79,46 @@ h3 {
 .creature {
   font-size: 3vw;
   font-family: "Bungee Outline", cursive;
-}
-.creature img {
-  max-width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 30vw;
+  background-color: rgba(0, 0, 255, 0.139);
+  margin: 0 0 3rem 0;
+  padding: 0 0 1rem 0;
 }
 .creature p {
   font-size: 2vw;
   font-family: "Oswald", sans-serif;
   color: white;
+}
+.collections-title {
+  font-family: "Syncopate", sans-serif;
+}
+.creature-img {
+  max-width: 30vw;
+}
+.creatures-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* ///////////////////SPECIES SECTION//////////////////// */
+.specie_container {
+  background-color: rgba(255, 255, 0, 0.104);
+  border-radius: 8%;
+  width: 30vw;
+}
+.species_name {
+  font-size: 2vw;
+  font-family: "Oswald", sans-serif;
+}
+.section-of-collection {
+  outline: rgba(0, 0, 255, 0.44) 3px solid;
+  border-radius: 8%;
+  padding: 2rem;
+}
+#grogu {
+  padding: 2rem;
 }

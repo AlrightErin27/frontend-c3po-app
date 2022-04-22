@@ -24,11 +24,13 @@ function Collection({ pets, creatures, user, species }) {
   }
 
   return (
-    <>
+    <div className="collection-container">
       <p>{user}'s Saved Collection</p>
-      <div>{renderSpecies}</div>
-      <h3>{renderPets}</h3>
-    </>
+      <h3 className="collections-title">Created Species</h3>
+      <div className="section-of-collection">{renderSpecies}</div>
+      <h3 className="collections-title">Collected Creatures</h3>
+      <div>{renderPets}</div>
+    </div>
   );
 }
 

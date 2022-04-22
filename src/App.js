@@ -84,7 +84,7 @@ function App() {
 
   return (
     <div id="app">
-      <h1>3CPO's Curiosities</h1>
+      <h1>C3PO's Curiosities</h1>
       <Router>
         <NavBar user={user} />
         {user !== "" ? <h3>Current User: {user}</h3> : ""}
