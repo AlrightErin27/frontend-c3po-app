@@ -15,6 +15,7 @@ function App() {
   const [user, setUser] = useState("");
   const [pets, setPets] = useState([]);
   const [creatures, setCreatures] = useState([]);
+  const [species, setSpecies] = useState([]);
 
   function handleLoggedUser(userName) {
     setUser(userName);
@@ -36,7 +37,18 @@ function App() {
       .then(setCreatures)
       .catch((err) => console.log("💀", err));
   }, []);
-  // console.log(creatures);
+
+  useEffect(() => {
+    fetch("http://localhost:9292/species", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("🎈", data))
+      .catch((err) => console.log("💀", err));
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:9292/pet", {
@@ -50,6 +62,25 @@ function App() {
       .catch((err) => console.log("🔥", err));
   }, []);
 
+  function handleNewSpecies(sName, sDesc) {
+    console.log(`Name: ${sName} & Desc: ${sDesc}`);
+
+    // fetch("http://localhost:9292/species", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     species_name: sName,
+    //     description: sDesc,
+    //     user_id: null,
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    //   .then(setSpecies)
+    //   .catch((err) => console.log("💀", err));
+  }
+  console.log("🌶", species);
   return (
     <div id="app">
       <h1>3CPO's Curiosities</h1>
@@ -67,7 +98,7 @@ function App() {
           </Route>
 
           <Route path="/create">
-            <Create />
+            <Create handleNewSpecies={handleNewSpecies} />
           </Route>
 
           <Route path="/login">
