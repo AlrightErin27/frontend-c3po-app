@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-function Creature({ creature, toSaveCreature }) {
+function Creature({ creature }) {
   function handleSave() {
-    toSaveCreature(creature.id);
+    console.log(`Hey there fellow Jedi. You saved ${creature.creature_id}`);
   }
+
+  useEffect(() => {
+    fetch("http://localhost:9292/pet", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ creature_id: creature.id, user_id: null }),
+    })
+      .then((response) => response.json())
+      .catch((err) => console.log("🔥", err));
+  }, [handleSave]);
 
   return (
     <div className="creature">

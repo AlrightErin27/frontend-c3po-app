@@ -1,30 +1,23 @@
 import React from "react";
+import FilteredCreatures from "./FilteredCreatures";
 
 function Pet({ pet, creatures }) {
-  // console.log("🐸", pet);
-  // console.log("🪲", creatures);
-
   const imgArr = [],
     nameArr = [];
 
-  const mapAndFilter = creatures.map((creature) => {
+  creatures.map((creature) => {
     if (creature.id === pet.creature_id) {
       imgArr.push(creature.image_url);
       nameArr.push(creature.creature_type);
-      // console.log(imgArr);
-      return (
-        <div className="creature" key={nameArr}>
-          <p>{nameArr}</p>
-          <img src={imgArr} alt={nameArr} />
-        </div>
-      );
     }
-    // else {
-    //   console.log("No matches found in collection");
-    // }
+    return imgArr && nameArr;
   });
 
-  return <div>{mapAndFilter}</div>;
+  return (
+    <div>
+      <FilteredCreatures imgArr={imgArr[0]} nameArr={nameArr[0]} pet={pet} />
+    </div>
+  );
 }
 
 export default Pet;

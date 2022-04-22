@@ -14,9 +14,7 @@ import Collection from "./components/Collection";
 function App() {
   const [user, setUser] = useState("");
   const [pets, setPets] = useState([]);
-  const [species, setSpecies] = useState([]);
   const [creatures, setCreatures] = useState([]);
-  const [savedCreature, setSavedCreature] = useState({});
 
   function handleLoggedUser(userName) {
     setUser(userName);
@@ -51,25 +49,6 @@ function App() {
       .then(setPets)
       .catch((err) => console.log("🔥", err));
   }, []);
-  // console.log(pets);
-
-  /////////HANDLING SAVED CREATURES////////////
-  function toSaveCreature(creatureId) {
-    console.log(creatureId);
-
-    fetch("http://localhost:9292/pet", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ creature_id: creatureId, user_id: null }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log("🔥", err));
-
-    console.log(pets);
-  }
 
   return (
     <div id="app">
@@ -84,7 +63,7 @@ function App() {
           </Route>
 
           <Route path="/creature">
-            <Creatures creatures={creatures} toSaveCreature={toSaveCreature} />
+            <Creatures creatures={creatures} />
           </Route>
 
           <Route path="/create">

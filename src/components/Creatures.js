@@ -1,18 +1,16 @@
 import Creature from "./Creature";
 
-function Creatures({ creatures, toSaveCreature }) {
+function Creatures({ creatures }) {
   const renderCreatures = creatures.map((creature) => {
-    return <Creature creature={creature} key={creature.id} toSaveCreature={toSaveCreature} />;
+    return <Creature creature={creature} key={creature.id} />;
   });
 
   return (
     <div>
       <h1 id="creatures-title">Library of Creatures</h1>
-      <div >{renderCreatures}</div>
+      <div>{renderCreatures}</div>
     </div>
-  )
-
-    
+  );
 }
 
 export default Creatures;
